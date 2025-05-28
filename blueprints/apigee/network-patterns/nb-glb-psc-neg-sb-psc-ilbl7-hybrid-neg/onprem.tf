@@ -87,7 +87,7 @@ module "instance_template" {
       image = "projects/cos-cloud/global/images/family/cos-stable"
     }
   }
-  create_template = {}
+  create_template = true
   metadata = {
     user-data = module.cos-nginx.cloud_config
   }

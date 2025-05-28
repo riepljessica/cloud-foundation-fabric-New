@@ -107,7 +107,7 @@ module "gitlab-runner-template" {
   service_account = {
     email = module.runner-mig-sa.0.email
   }
-  create_template = {}
+  create_template = true
 }
 
 module "gitlab-runner-mig" {

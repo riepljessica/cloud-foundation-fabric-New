@@ -45,9 +45,6 @@ output "projects" {
           }
         }
       )
-      service_agents = {
-        for k, v in v.service_agents : k => v.email if v.is_primary
-      }
     }
   }
 }

@@ -29,7 +29,7 @@ module "_instance-template" {
       image = "projects/cos-cloud/global/images/family/cos-stable"
     }
   }
-  create_template = {}
+  create_template = true
 }
 
 module "compute-mig" {

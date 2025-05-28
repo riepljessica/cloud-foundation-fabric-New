@@ -37,7 +37,7 @@ variable "attached_disk_defaults" {
 variable "attached_disks" {
   description = "Additional disks, if options is null defaults will be used in its place. Source type is one of 'image' (zonal disks in vms and template), 'snapshot' (vm), 'existing', and null."
   type = list(object({
-    name        = optional(string)
+    name        = string
     device_name = optional(string)
     # TODO: size can be null when source_type is attach
     size              = string
@@ -70,6 +70,7 @@ variable "attached_disks" {
     ]) == length(var.attached_disks)
     error_message = "Source type must be one of 'image', 'snapshot', 'attach', null."
   }
+
   validation {
     condition = length([
       for d in var.attached_disks : d if d.options == null ||
@@ -126,12 +127,9 @@ variable "confidential_compute" {
 }
 
 variable "create_template" {
-  description = "Create instance template instead of instances. Defaults to a global template."
-  type = object({
-    regional = optional(bool, false)
-  })
-  nullable = true
-  default  = null
+  description = "Create instance template instead of instances."
+  type        = bool
+  default     = false
 }
 
 variable "description" {
