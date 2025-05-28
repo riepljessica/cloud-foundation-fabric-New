@@ -21,7 +21,7 @@ module "nva_instance_templates" {
   source          = "../../../modules/compute-vm"
   project_id      = module.project_landing.project_id
   can_ip_forward  = true
-  create_template = {}
+  create_template = true
   name            = "nva-${each.value}"
   service_account = {
     auto_create = true

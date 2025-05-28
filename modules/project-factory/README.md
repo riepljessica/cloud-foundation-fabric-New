@@ -210,7 +210,6 @@ The following table lists the available context interpolations. External context
 | project             | parent               | `folder_ids`        | internally created folders         |
 | project             | Shared VPC host      | `vpc_host_projects` |                                    |
 | project             | Shared VPC IAM       | `iam_principals`    | project service accounts           |
-|                     |                      |                     | project service agents |
 |                     |                      |                     | IaC service accounts               |
 |                     |                      |                     | other project service accounts     |
 |                     |                      |                     | other project IaC service accounts |
@@ -218,7 +217,6 @@ The following table lists the available context interpolations. External context
 | project             | IAM principals       | `iam_principals`    | project service accounts           |
 |                     |                      |                     | IaC service accounts               |
 |                     |                      |                     | other project service accounts     |
-|                     |                      |                     | other project service agents     |
 |                     |                      |                     | other project IaC service accounts |
 | bucket              | IAM principals       | `iam_principals`    | project service accounts           |
 |                     |                      |                     | IaC service accounts               |
@@ -359,9 +357,6 @@ services:
 iam_by_principals:
   app-0-be:
     - roles/storage.objectViewer
-iam:
-  roles/cloudkms.cryptoKeyEncrypterDecrypter:
-    - storage
 service_accounts:
   app-0-be:
     display_name: "Backend instances."
@@ -528,7 +523,7 @@ service_accounts:
 | [buckets](outputs.tf#L17) | Bucket names. |  |
 | [folders](outputs.tf#L24) | Folder ids. |  |
 | [projects](outputs.tf#L29) | Created projects. |  |
-| [service_accounts](outputs.tf#L55) | Service account emails. |  |
+| [service_accounts](outputs.tf#L52) | Service account emails. |  |
 <!-- END TFDOC -->
 ## Tests
 
